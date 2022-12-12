@@ -13,4 +13,9 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css')
-  .sourceMaps(true, 'source-map');
+  .sourceMaps(true, 'source-map')
+  .options({
+    processCssUrls: false // Do not touch stylesheet url()'s
+  })
+  .version()
+  .browserSync('http://127.0.0.1:8000/');

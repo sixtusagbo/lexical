@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CoreController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CoreController::class, 'index']);
+Route::get('/contact', [CoreController::class, 'contact'])->name('contact');
+Route::get('/testimonial', [CoreController::class, 'testimonial'])->name('testimonial');
+Route::get('/payment', [CoreController::class, 'payment'])->name('payment');
+Route::get('/faq', [CoreController::class, 'faq'])->name('faq');
 
 Auth::routes();
 
