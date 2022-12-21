@@ -14,26 +14,33 @@
                     </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                                placeholder="Email" required id="floatingEmail">
+                                placeholder="Email" value="{{ old('email') }}" id="floatingEmail" required
+                                autocomplete="email">
                             <label for="floatingEmail">Email address</label>
+
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
+
                         <div class="form-floating mb-3">
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                name="password" placeholder="Password" required id="floatingPassword">
+                                name="password" placeholder="Password" id="floatingPassword" required
+                                autocomplete="new-password">
                             <label for="floatingPassword">Password</label>
+
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
+
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberCheck" name="remember"
