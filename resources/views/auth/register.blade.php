@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
     <!-- Sign Up Start -->
@@ -20,15 +20,17 @@
                             <div class="col">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" name="first_name" id="floatingFname"
-                                        placeholder="John" required>
-                                    <label for="floatingFname">First Name</label>
+                                        placeholder="John" value="{{ old('first_name') }}" required>
+                                    <label for="floatingFname">First
+                                        Name</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" name="last_name" placeholder="Last Name"
-                                        id="floatingLname" required>
-                                    <label for="floatingLname">Last Name</label>
+                                        id="floatingLname" value="{{ old('last_name') }}" required>
+                                    <label for="floatingLname">Last
+                                        Name</label>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +71,7 @@
 
                         <div class="form-floating mb-3">
                             <input type="number" id="phone_number" class="form-control" placeholder="Phone number"
-                                id="floatingPhone" name="phone_number" required />
+                                id="floatingPhone" name="phone_number" value="{{ old('phone_number') }}" required />
                             <label for="floatingPhone">Phone Number</label>
                         </div>
 

@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>{{ config('app.name') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link href="{{ asset('favicon.ico') }}" rel="icon">
@@ -24,10 +25,9 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('js/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('js/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- App Stylesheet -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/auth.css') }}">
 </head>
 
 <body id="top">
@@ -41,22 +41,17 @@
         </div>
         <!-- Spinner End -->
 
-
         @yield('content')
     </div>
 
     <!-- JavaScript Libraries -->
     <script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('js/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('js/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/lib/counterup/counterup.min.js') }}"></script>
+    <script src="{{ asset('js/lib/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- App Javascript -->
-    <script src="{{ mix('js/app.js') }}"></script>
-
-    @include('inc.script')
+    <script src="{{ mix('js/auth.js') }}"></script>
 
     @yield('script')
 </body>

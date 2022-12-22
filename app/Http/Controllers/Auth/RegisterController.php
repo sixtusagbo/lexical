@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Coupon;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -42,6 +44,22 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm(Request $request)
+    {
+        if ($request->has('ref')) {
+            session(['referrer' => $request->query('ref')]);
+        }
+
+        return view('auth.register');
+    }
+
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -50,9 +68,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone_number' => ['required', 'numeric', 'min:10'],
+            'coupon_code' => ['required', 'alpha_num', 'exists:coupons,code'],
         ]);
     }
 
@@ -64,10 +85,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $referrer = User::where('id', session()->pull('referrer'))->first();
+
+        $user = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone_number' => $data['phone_number'],
+            'referrer_id' => $referrer ? $referrer->id : null,
         ]);
+
+        $coupon_id = Coupon::where('code', $data['coupon_code'])->first()->id;
+        $coupon = Coupon::find($coupon_id);
+        $coupon->user_id = $user->id;
+        $coupon->update();
+
+        return $user;
     }
 }

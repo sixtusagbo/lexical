@@ -21,6 +21,6 @@ Route::get('/testimonial', [CoreController::class, 'testimonial'])->name('testim
 Route::get('/payment', [CoreController::class, 'payment'])->name('payment');
 Route::get('/faq', [CoreController::class, 'faq'])->name('faq');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
