@@ -32,4 +32,20 @@ class HomeController extends Controller
 
         return view('dash.home', $data);
     }
+
+    /**
+     * Show the application referrals page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function referrals()
+    {
+        $user = auth()->user();
+
+        $data = [
+            'is_new_user' => $user->created_at->diffInDays(Carbon::now()) == 0,
+        ];
+
+        return view('dash.referral', $data);
+    }
 }

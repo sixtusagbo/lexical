@@ -24,3 +24,4 @@ Route::get('/faq', [CoreController::class, 'faq'])->name('faq');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/referrals', [App\Http\Controllers\HomeController::class, 'referrals'])->name('referrals');
