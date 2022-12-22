@@ -87,6 +87,11 @@ class RegisterController extends Controller
     {
         $referrer = User::where('id', session()->pull('referrer'))->first();
 
+        if ($referrer) {
+            $referrer->referral_earnings += config('myglobals.ref_worth');
+            $referrer->update();
+        }
+
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -94,6 +99,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'phone_number' => $data['phone_number'],
             'referrer_id' => $referrer ? $referrer->id : null,
+            'task_earnings' => config('myglobals.welcome_bonus') + config('myglobals.daily_login_bonus'),
         ]);
 
         $coupon = Coupon::where('code', $data['coupon_code'])->first();

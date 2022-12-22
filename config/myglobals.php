@@ -10,7 +10,6 @@ return [
     | This option controls the social media links available across the app
     |
     */
-
   'socials' => [
     'facebook' => 'https://facebook.com/',
     'twitter' => 'https://twitter.com/',
@@ -19,5 +18,16 @@ return [
     'email' => 'miracleagbosixtus@gmail.com'
   ],
 
+  /*
+    |--------------------------------------------------------------------------
+    | Finance
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the financial settings of the app
+    |
+    */
   'currency' => '$',
+  'ref_worth' => 50,
+  'welcome_bonus' => 2000,
+  'daily_login_bonus' => 300,
 ];

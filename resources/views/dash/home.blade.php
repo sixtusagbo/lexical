@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <div class="alert alert-success alert-dismissible show fade mb-0">
                         You have successfully completed the task of joining🎯 <b>{{ config('app.name') }}</b> as such, you
-                        have earned @money(2000) welcome bonus and @money(300) daily login🎯 bonus.
+                        have earned @money(config('myglobals.welcome_bonus')) welcome bonus and @money(config('myglobals.daily_login_bonus')) daily login🎯 bonus.
                         Welcome on board, {{ Auth::user()->full_name }}.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

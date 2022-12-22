@@ -67,7 +67,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav bg-light w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i
+                    <a href="{{ route('home') }}"
+                        class="nav-item nav-link @if (Request::is('home')) active @endif"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="profile" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Profile</a>
                     <a href="referrals" class="nav-item nav-link"><i class="fa fa-users me-2"></i>Referrals</a>
