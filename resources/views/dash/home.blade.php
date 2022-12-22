@@ -35,7 +35,7 @@
                     <i class="fa fa-tasks fa-3x text-primary"></i>
                     <div class="ms-2">
                         <p class="mb-2">Task Earnings</p>
-                        <h6 class="mb-0">@money(1234)</h6>
+                        <h6 class="mb-0">@money(Auth::user()->task_earnings)</h6>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <i class="fa fa-user-plus fa-3x text-primary"></i>
                     <div class="ms-2">
                         <p class="mb-2">Referral Earnings</p>
-                        <h6 class="mb-0">$1234</h6>
+                        <h6 class="mb-0">@money(Auth::user()->referral_earnings)</h6>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <i class="fa fa-wallet fa-3x text-primary"></i>
                     <div class="ms-2">
                         <p class="mb-2">Total Earnings</p>
-                        <h6 class="mb-0">$1234</h6>
+                        <h6 class="mb-0">@money(Auth::user()->total_earnings)</h6>
                     </div>
                 </div>
             </div>

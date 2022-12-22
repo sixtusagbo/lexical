@@ -20,4 +20,4 @@ mix.js('resources/js/app.js', 'public/js')
     processCssUrls: false // Do not touch stylesheet url()'s
   })
   .version()
-  // .browserSync('http://127.0.0.1:8000/');
+  .browserSync('http://127.0.0.1:8000/');

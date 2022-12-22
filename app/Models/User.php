@@ -51,7 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $appends = ['referral_link', 'full_name'];
+    protected $appends = ['referral_link', 'full_name', 'total_earnings'];
 
     /**
      * Get the user's referral link.
