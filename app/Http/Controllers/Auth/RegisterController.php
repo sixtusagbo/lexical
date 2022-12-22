@@ -96,8 +96,7 @@ class RegisterController extends Controller
             'referrer_id' => $referrer ? $referrer->id : null,
         ]);
 
-        $coupon_id = Coupon::where('code', $data['coupon_code'])->first()->id;
-        $coupon = Coupon::find($coupon_id);
+        $coupon = Coupon::where('code', $data['coupon_code'])->first();
         $coupon->user_id = $user->id;
         $coupon->update();
 

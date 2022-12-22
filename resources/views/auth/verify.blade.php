@@ -6,13 +6,13 @@
         <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
             <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                 <div class="bg-light rounded p-3 p-sm-4 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-center mb-3">
+                    <div class="d-flex align-items-center justify-content-center">
                         <a href="{{ url('/') }}" class="">
                             <img src="{{ asset('images/logo.png') }}" alt="" height="55" width="150">
                         </a>
-                        <p>
-                            {{ __('Verify Your Email Address') }}
-                        </p>
+                    </div>
+                    <div class="bg-dark fw-bold text-center text-light rounded-3 p-2">
+                        {{ __('Verify Your Email Address') }}
                     </div>
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">

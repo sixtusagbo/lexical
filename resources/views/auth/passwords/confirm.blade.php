@@ -10,9 +10,10 @@
                         <a href="{{ url('/') }}" class="">
                             <img src="{{ asset('images/logo.png') }}" alt="" height="55" width="150">
                         </a>
-                        <p>
-                            {{ __('Please confirm your password before continuing.') }}
-                        </p>
+                    </div>
+
+                    <div class="bg-dark fw-bold text-center text-light rounded-3 p-2 mb-3">
+                        {{ __('Please confirm your password before continuing.') }}
                     </div>
 
                     <form method="POST" action="{{ route('password.confirm') }}">

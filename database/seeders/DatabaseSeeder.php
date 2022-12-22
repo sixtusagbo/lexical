@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory()->unverified()->create([
-            'name' => 'Sixtus Agbo',
+            'first_name' => 'Sixtus',
+            'last_name' => 'Agbo',
             'email' => 'mail.mirolic@gmail.com',
         ]);
 
