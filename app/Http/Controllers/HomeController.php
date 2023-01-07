@@ -40,12 +40,16 @@ class HomeController extends Controller
      */
     public function referrals()
     {
-        $user = auth()->user();
+        return view('dash.referral');
+    }
 
-        $data = [
-            'is_new_user' => $user->created_at->diffInDays(Carbon::now()) == 0,
-        ];
-
-        return view('dash.referral', $data);
+    /**
+     * Show the application profile page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile()
+    {
+        return view('dash.profile');
     }
 }

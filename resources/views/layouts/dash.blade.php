@@ -70,12 +70,14 @@
                     <a href="{{ route('home') }}"
                         class="nav-item nav-link @if (Request::is('home')) active @endif"><i
                             class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="profile" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Profile</a>
+                    <a href="profile" class="nav-item nav-link @if (Request::is('profile')) active @endif"><i
+                            class="fa fa-user me-2"></i>Profile</a>
                     <a href="{{ route('referrals') }}"
                         class="nav-item nav-link @if (Request::is('referrals')) active @endif"><i
                             class="fa fa-users me-2"></i>Referrals</a>
-                    <a href="wallet" class="nav-item nav-link"><i class="fa fa-wallet me-2"></i>Wallet</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-blog me-2"></i>Blog</a>
+                    <a href="wallet" class="nav-item nav-link @if (Request::is('wallet')) active @endif"><i
+                            class="fa fa-wallet me-2"></i>Wallet</a>
+                    <a href="blog" class="nav-item nav-link"><i class="fa fa-blog me-2"></i>Blog</a>
                 </div>
             </nav>
         </div>
