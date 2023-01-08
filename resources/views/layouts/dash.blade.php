@@ -49,7 +49,8 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="{{ asset('images/testimonial-1.jpg') }}" alt=""
+                        <img class="rounded-circle"
+                            src="{{ asset('storage/images/profile/' . Auth::user()->profile_image) }}" alt=""
                             style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
@@ -99,7 +100,8 @@
                     @endif
                     <div class="nav-item bg-light dropdown">
                         <a href="#" class="nav-link bg-light dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="{{ asset('images/testimonial-1.jpg') }}"
+                            <img class="rounded-circle me-lg-2"
+                                src="{{ asset('storage/images/profile/' . Auth::user()->profile_image) }}"
                                 alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">{{ Auth::user()->full_name }}</span>
                         </a>
@@ -120,6 +122,8 @@
                 </div>
             </nav>
             <!-- Navbar End -->
+
+            @include('inc.messages')
 
             @yield('content')
 
