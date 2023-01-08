@@ -22,25 +22,25 @@
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <div class="bg-light rounded d-flex align-items-center p-4">
                     <i class="fa fa-users fa-3x text-primary"></i>
-                    <div class="ms-2">
+                    <div class="ms-4">
                         <p class="mb-2">Referrals</p>
                         <h6 class="mb-0">{{ Auth::user()->referrals->count() }}</h6>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <div class="bg-light rounded d-flex align-items-center p-4">
                     <i class="fa fa-tasks fa-3x text-primary"></i>
-                    <div class="ms-2">
+                    <div class="ms-4">
                         <p class="mb-2">Task Earnings</p>
                         <h6 class="mb-0">@money(Auth::user()->task_earnings)</h6>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <div class="bg-light rounded d-flex align-items-center p-4">
                     <i class="fa fa-user-plus fa-3x text-primary"></i>
                     <div class="ms-2">
                         <p class="mb-2">Referral Earnings</p>
@@ -49,9 +49,9 @@
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3">
-                <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <div class="bg-light rounded d-flex align-items-center p-4">
                     <i class="fa fa-wallet fa-3x text-primary"></i>
-                    <div class="ms-2">
+                    <div class="ms-4">
                         <p class="mb-2">Total Earnings</p>
                         <h6 class="mb-0">@money(Auth::user()->total_earnings)</h6>
                     </div>

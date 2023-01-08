@@ -26,7 +26,7 @@ return [
     | This option controls the financial settings of the app
     |
     */
-  'currency' => '$',
+  'currency' => '&#8358;',
   'ref_worth' => 50,
   'welcome_bonus' => 2000,
   'daily_login_bonus' => 300,

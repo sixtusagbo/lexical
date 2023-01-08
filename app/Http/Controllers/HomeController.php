@@ -52,4 +52,14 @@ class HomeController extends Controller
     {
         return view('dash.profile');
     }
+
+    /**
+     * Show the application wallet page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function wallet()
+    {
+        return view('dash.wallet');
+    }
 }
