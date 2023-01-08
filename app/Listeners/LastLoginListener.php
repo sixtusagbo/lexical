@@ -28,9 +28,11 @@ class LastLoginListener
     {
         $user = $event->user;
 
-        if (Carbon::create($user->last_login)->diffInDays(Carbon::now()) > 0) {
-            $user->task_earnings += config('myglobals.daily_login_bonus');
-        }
+        // ?Daily login bonus task achieved
+        // ?He later asked me to remove this feature
+        // if (Carbon::create($user->last_login)->diffInDays(Carbon::now()) > 0) {
+        //     $user->task_earnings += config('myglobals.daily_login_bonus');
+        // }
 
         // Update user last login timestamp
         $user->last_login = Carbon::now()->toDateTime();

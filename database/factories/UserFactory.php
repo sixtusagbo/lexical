@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'phone_number' => fake()->phoneNumber(),
             'country' => fake()->country(),
             'remember_token' => Str::random(10),
+            'task_earnings' => config('myglobals.welcome_bonus') + config('myglobals.daily_login_bonus'),
         ];
     }
 

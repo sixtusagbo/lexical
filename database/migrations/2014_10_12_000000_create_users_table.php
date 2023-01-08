@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('country')->nullable();
             $table->tinyInteger('type')->default(0);
-            $table->string('profile_image')->nullable();
+            $table->string('profile_image')->default('no_profile_image.png');
             $table->timestamp('last_login')->nullable();
             $table->timestamp('last_share_blog')->nullable();
             $table->decimal('task_earnings')->default(0);
