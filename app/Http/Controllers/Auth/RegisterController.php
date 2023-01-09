@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\UnusedCoupon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -73,7 +74,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone_number' => ['required', 'numeric', 'min:10'],
-            'coupon_code' => ['required', 'alpha_num', 'exists:coupons,code'],
+            'coupon_code' => ['required', 'alpha_num', 'exists:coupons,code', new UnusedCoupon],
         ]);
     }
 

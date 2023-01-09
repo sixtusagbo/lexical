@@ -70,8 +70,9 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="number" id="phone_number" class="form-control" placeholder="Phone number"
-                                id="floatingPhone" name="phone_number" value="{{ old('phone_number') }}" required />
+                            <input type="text" id="phone_number" class="form-control" placeholder="Phone number"
+                                maxlength="11" id="floatingPhone" name="phone_number" value="{{ old('phone_number') }}"
+                                required />
                             <label for="floatingPhone">Phone Number</label>
                         </div>
 
@@ -80,6 +81,7 @@
                                 name="coupon_code" placeholder="Coupon Code" required id="floatingCoupon"
                                 style="-webkit-text-security: square;">
                             <label for="floatingCoupon">Coupon Code</label>
+
                             @error('coupon_code')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
