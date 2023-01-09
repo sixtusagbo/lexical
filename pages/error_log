@@ -1,0 +1,31 @@
+[17-Feb-2022 21:39:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/common.php(11): getUserWithEmailAddress('hi@mal.com')
+#1 /home/lexicalp/public_html/pages/components/header.php(3): include_once('/home/lexicalp/...')
+#2 /home/lexicalp/public_html/pages/home.php(5): include_once('/home/lexicalp/...')
+#3 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
+[17-Feb-2022 21:40:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/common.php(11): getUserWithEmailAddress('hi@mal.com')
+#1 /home/lexicalp/public_html/pages/signup.php(5): include_once('/home/lexicalp/...')
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
+[17-Feb-2022 21:41:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/common.php(11): getUserWithEmailAddress('hi@mal.com')
+#1 /home/lexicalp/public_html/pages/signup.php(5): include_once('/home/lexicalp/...')
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
+[17-Feb-2022 21:44:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/common.php(11): getUserWithEmailAddress('hi@mal.com')
+#1 /home/lexicalp/public_html/pages/signup.php(5): include_once('/home/lexicalp/...')
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
+[17-Feb-2022 21:46:10 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/common.php(11): getUserWithEmailAddress('danoko@gmail.co...')
+#1 /home/lexicalp/public_html/pages/signup.php(5): include_once('/home/lexicalp/...')
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78

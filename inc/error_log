@@ -1,0 +1,12 @@
+[17-Feb-2022 21:34:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/inc/functions.php(130): getUserWithEmailAddress('head@sesed.com')
+#1 /home/lexicalp/public_html/inc/process_signup.php(4): validateSignUp()
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
+[17-Feb-2022 21:34:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/lexicalp/public_html/inc/functions.php:78
+Stack trace:
+#0 /home/lexicalp/public_html/inc/functions.php(130): getUserWithEmailAddress('head@sesed.com')
+#1 /home/lexicalp/public_html/inc/process_signup.php(4): validateSignUp()
+#2 {main}
+  thrown in /home/lexicalp/public_html/inc/functions.php on line 78
