@@ -151,4 +151,42 @@ class UserController extends Controller
 
         return redirect()->route('wallet')->with('success', 'Cash out placed successfully!');
     }
+
+    /**
+     * Store task cashout request in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response    
+     */
+    public function taskCashout(Request $request)
+    {
+        // return 123; //? test case
+
+        $values = $request->validate([
+            'amount' => ['required'],
+            'bank_name' => ['required', 'string', 'max:255'],
+            'account_number' => ['required', 'numeric', 'min_digits:10'],
+        ]);
+
+        // Current user
+        $user = auth()->user();
+
+        // Create new withdrawal request
+        $withdrawal = new Withdrawal();
+        $withdrawal->type = 'task';
+        $withdrawal->amount = $values['amount'];
+        $withdrawal->acc_name = $user->full_name;
+        $withdrawal->bank = $values['bank_name'];
+        $withdrawal->acc_num = $values['account_number'];
+        $withdrawal->user_id = $user->id;
+        $withdrawal->save();
+
+        // Update the amount of referral money the person has
+        $id = auth()->user()->id; // id of logged in user
+        $user = User::find($id);
+        $user->task_earnings -= $values['amount'];
+        $user->update();
+
+        return redirect()->route('wallet')->with('success', 'Cash out placed successfully!');
+    }
 }

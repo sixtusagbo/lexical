@@ -34,7 +34,8 @@ Route::get('/wallet', [App\Http\Controllers\HomeController::class, 'wallet'])->n
 Route::put('/profile_image', [UserController::class, 'uploadProfileImage'])->name('uploadProfileImage');
 Route::put('/bio_data', [UserController::class, 'updateBioData'])->name('updateBioData');
 Route::put('/pass_change', [UserController::class, 'updateUserPassword'])->name('updateUserPassword');
-Route::post('/ref_cashout', [UserController::class, 'referralCashout'])->name('referralCashout');
+Route::post('/ref_cashout', [UserController::class, 'referralCashout'])->name('referral_cashout');
+Route::post('/task_cashout', [UserController::class, 'taskCashout'])->name('task_cashout');
 
 Route::get('/link_storage', function () {
   Artisan::call('storage:link');

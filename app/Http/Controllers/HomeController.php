@@ -60,6 +60,13 @@ class HomeController extends Controller
      */
     public function wallet()
     {
-        return view('dash.wallet');
+        $user = auth()->user();
+        $withdrawals = $user->withdrawals;
+
+        $data = [
+            'withdrawals' => $withdrawals,
+        ];
+
+        return view('dash.wallet', $data);
     }
 }

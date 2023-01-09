@@ -15,6 +15,7 @@ class Withdrawal extends Model
         'acc_name',
         'bank',
         'acc_num',
+        // ?0-Pending, 1-Successful, 2-Failed
         'status',
         'remark',
         'user_id',
