@@ -118,4 +118,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Withdrawal::class);
     }
+
+    /**
+     * A user has one coupon code.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function coupon()
+    {
+        return $this->hasOne(Coupon::class);
+    }
 }

@@ -15,6 +15,8 @@ class CouponSeeder extends Seeder
      */
     public function run()
     {
+        Coupon::factory()->create(['user_id' => 4201]);
+
         Coupon::factory(5)->create();
     }
 }

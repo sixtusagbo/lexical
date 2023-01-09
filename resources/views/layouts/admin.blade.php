@@ -68,17 +68,18 @@
                     </div>
                 </div>
                 <div class="navbar-nav bg-light w-100">
-                    <a href="{{ route('home') }}"
-                        class="nav-item nav-link @if (Request::is('home')) active @endif"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="profile" class="nav-item nav-link @if (Request::is('profile')) active @endif"><i
-                            class="fa fa-user me-2"></i>Profile</a>
-                    <a href="{{ route('referrals') }}"
-                        class="nav-item nav-link @if (Request::is('referrals')) active @endif"><i
-                            class="fa fa-users me-2"></i>Referrals</a>
-                    <a href="wallet" class="nav-item nav-link @if (Request::is('wallet')) active @endif"><i
-                            class="fa fa-wallet me-2"></i>Wallet</a>
-                    <a href="blog" class="nav-item nav-link"><i class="fa fa-blog me-2"></i>Blog</a>
+                    <a href="{{ route('users') }}"
+                        class="nav-item nav-link @if (Request::is('users')) active @endif"><i
+                            class="fa fa-users me-2"></i>Members</a>
+                    <a href="{{ route('debits') }}"
+                        class="nav-item nav-link @if (Request::is('withdrawals')) active @endif"><i
+                            class="fa fa-coins me-2"></i>Withdrawals</a>
+                    <a href="{{ route('coupons') }}"
+                        class="nav-item nav-link @if (Request::is('coupons')) active @endif"><i
+                            class="fa fa-key me-2"></i>Coupons</a>
+                    <a href="{{ url('/blog') }}"
+                        class="nav-item nav-link @if (Request::is('blog')) active @endif"><i
+                            class="fa fa-rss-square me-2"></i>Access Blog</a>
                 </div>
             </nav>
         </div>
@@ -93,11 +94,6 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <div class="navbar-nav align-items-center ms-auto">
-                    @if (Auth::user()->type == 1)
-                        <a class="btn btn-dark text-light" href="{{ route('users') }}">
-                            <i class='bi bi-shield-lock-fill bi-sub fs-4 text-light-600'></i> CPanel
-                        </a>
-                    @endif
                     <div class="nav-item bg-light dropdown">
                         <a href="#" class="nav-link bg-light dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2"

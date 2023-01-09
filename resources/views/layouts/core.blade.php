@@ -5,8 +5,26 @@
     <meta charset="utf-8">
     <title>{{ config('app.name') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="{{ config('app.name') }}">
+    <meta name="description" content="Highly profitable influencer site, Earn money for blog post shares, referrals.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ config('app.url') }}">
+    <meta property="og:title" content="{{ config('app.name') }}">
+    <meta property="og:description"
+        content="Highly profitable influencer site, Earn money for blog post shares, referrals.">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ config('app.url') }}">
+    <meta property="twitter:title" content="{{ config('app.name') }}">
+    <meta property="twitter:description"
+        content="Highly profitable influencer site, Earn money for blog post shares, referrals.">
+    <meta property="twitter:image" content="{{ asset('images/logo.png') }}">
 
     <!-- Favicon -->
     <link href="{{ asset('favicon.ico') }}" rel="icon">
