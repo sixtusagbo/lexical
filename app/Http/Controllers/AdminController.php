@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,36 @@ class AdminController extends Controller
         ];
 
         return view('admin.users', $data);
+    }
+
+    /**
+     * Show all the unused coupons.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function coupons()
+    {
+        $data = [
+            'coupons' => Coupon::where('user_id', null)->paginate(7),
+        ];
+
+        return view('admin.coupons', $data);
+    }
+
+    /**
+     * Create new coupon.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create_coupon()
+    {
+        $val = request()->validate([
+            'quantity' => ['numeric', 'min:1', 'max:5']
+        ]);
+
+        Coupon::factory($val['quantity'])->create();
+
+        return redirect()->route('coupons')->with('success', $val['quantity'] . ' coupons created');
     }
 
     /**

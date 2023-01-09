@@ -41,6 +41,7 @@ Route::post('/task_cashout', [UserController::class, 'taskCashout'])->name('task
 Route::get('/users', [AdminController::class, 'users'])->name('users')->middleware('role.admin');
 Route::get('/withdrawals', [AdminController::class, 'withdrawals'])->name('debits')->middleware('role.admin');
 Route::get('/coupons', [AdminController::class, 'coupons'])->name('coupons')->middleware('role.admin');
+Route::get('/coupons/create', [AdminController::class, 'create_coupon'])->name('coupons.create')->middleware('role.admin');
 Route::delete('/user', [AdminController::class, 'destroy_user'])->name('user.destroy')->middleware('role.admin');
 
 Route::get('/link_storage', function () {

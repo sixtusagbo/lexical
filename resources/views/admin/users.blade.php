@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <!-- ALl Users Start -->
+    <!-- All Users Start -->
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-12">
@@ -88,5 +88,5 @@
         </div>
         <!--//row-->
     </div>
-    <!-- ALl Users Start -->
+    <!-- All Users End -->
 @endsection
