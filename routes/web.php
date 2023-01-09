@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -39,10 +40,12 @@ Route::post('/ref_cashout', [UserController::class, 'referralCashout'])->name('r
 Route::post('/task_cashout', [UserController::class, 'taskCashout'])->name('task_cashout');
 
 Route::get('/users', [AdminController::class, 'users'])->name('users')->middleware('role.admin');
-Route::get('/withdrawals', [AdminController::class, 'withdrawals'])->name('debits')->middleware('role.admin');
 Route::get('/coupons', [AdminController::class, 'coupons'])->name('coupons')->middleware('role.admin');
 Route::get('/coupons/create', [AdminController::class, 'create_coupon'])->name('coupons.create')->middleware('role.admin');
 Route::delete('/user', [AdminController::class, 'destroy_user'])->name('user.destroy')->middleware('role.admin');
+
+Route::resource('debits', WithdrawalController::class)->only(['index', 'update', 'destroy']);
+Route::post('/debits', [WithdrawalController::class, 'toggle'])->name('debits.toggle')->middleware('role.admin');
 
 Route::get('/link_storage', function () {
   Artisan::call('storage:link');

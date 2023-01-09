@@ -15,7 +15,7 @@
   ),
   'currency' => '&#8358;',
   'referral_worth' => '1000.00',
-  'cashout_day' => 0,
+  'cashout_day' => 1,
   'referral_cashout_day' => 0,
   'welcome_bonus' => '500.00',
   'sponsored_post' => '100.00',

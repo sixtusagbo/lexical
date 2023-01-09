@@ -71,8 +71,8 @@
                     <a href="{{ route('users') }}"
                         class="nav-item nav-link @if (Request::is('users')) active @endif"><i
                             class="fa fa-users me-2"></i>Members</a>
-                    <a href="{{ route('debits') }}"
-                        class="nav-item nav-link @if (Request::is('withdrawals')) active @endif"><i
+                    <a href="{{ route('debits.index') }}"
+                        class="nav-item nav-link @if (Request::is('debits')) active @endif"><i
                             class="fa fa-coins me-2"></i>Withdrawals</a>
                     <a href="{{ route('coupons') }}"
                         class="nav-item nav-link @if (Request::is('coupons')) active @endif"><i
