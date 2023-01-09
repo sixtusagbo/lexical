@@ -46,9 +46,11 @@
 
     <!-- App Stylesheet -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
 </head>
 
 <body id="top">
+    <script src="//code.tidio.co/bqwkfaba7sy6a2zlvrdxiwbzmz0bsjmw.js" async></script>
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -189,7 +191,6 @@
         </div>
     </div>
     <!-- Copyright End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
