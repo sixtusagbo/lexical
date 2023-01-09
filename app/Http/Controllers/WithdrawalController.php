@@ -53,6 +53,7 @@ class WithdrawalController extends Controller
         $user = User::find($withdrawal->user->id);
 
         $withdrawal->status = $request->input('status');
+        $withdrawal->remark = $request->input('remark');
         $withdrawal->update();
 
         switch ($withdrawal->status) {

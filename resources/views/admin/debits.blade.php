@@ -159,6 +159,12 @@
                                                                     Decline</option>
                                                             </select>
                                                         </div>
+
+                                                        <div class="mb-3">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Remark" name="remark" required>
+                                                        </div>
+
                                                         <input type="hidden" name="_method" value="PUT">
                                                 </div>
                                                 <div class="modal-footer">

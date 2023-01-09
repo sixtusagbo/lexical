@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Withdrawal;
+use App\Notifications\PasswordUpdateNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -110,6 +112,8 @@ class UserController extends Controller
 
         $user->password = Hash::make($values['password']);
         $user->update();
+
+        Notification::send($user, new PasswordUpdateNotification());
 
         return redirect()->route('profile')->with('success', 'Profile image updated successfully!');
     }
