@@ -3,12 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * User Actions
+ */
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     /**
      * Update the user's profile_image field in storage
      *
@@ -23,7 +37,7 @@ class UserController extends Controller
             'profile_image' => 'image|required',
         ]);
 
-        $id = auth()->user()->id; // user id whose image wil be added
+        $id = auth()->user()->id; // id of logged in user
         $user = User::find($id);
 
         if ($user->profile_image != 'no_profile_image.png') {
@@ -64,7 +78,7 @@ class UserController extends Controller
             'country' => ['required', 'string', 'max:255'],
         ]);
 
-        $id = auth()->user()->id; // user id whose image wil be added
+        $id = auth()->user()->id; // id of logged in user
         $user = User::find($id);
 
         $user->first_name = $values['first_name'];
@@ -91,12 +105,50 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $id = auth()->user()->id; // user id whose image wil be added
+        $id = auth()->user()->id; // id of logged in user
         $user = User::find($id);
 
         $user->password = Hash::make($values['password']);
         $user->update();
 
         return redirect()->route('profile')->with('success', 'Profile image updated successfully!');
+    }
+
+    /**
+     * Store referral cashout request in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response    
+     */
+    public function referralCashout(Request $request)
+    {
+        // return 123; //? test case
+
+        $values = $request->validate([
+            'amount' => ['required'],
+            'bank_name' => ['required', 'string', 'max:255'],
+            'account_number' => ['required', 'numeric', 'min_digits:10'],
+        ]);
+
+        // Current user
+        $user = auth()->user();
+
+        // Create new withdrawal request
+        $withdrawal = new Withdrawal();
+        $withdrawal->type = 'referral';
+        $withdrawal->amount = $values['amount'];
+        $withdrawal->acc_name = $user->full_name;
+        $withdrawal->bank = $values['bank_name'];
+        $withdrawal->acc_num = $values['account_number'];
+        $withdrawal->user_id = $user->id;
+        $withdrawal->save();
+
+        // Update the amount of referral money the person has
+        $id = auth()->user()->id; // id of logged in user
+        $user = User::find($id);
+        $user->referral_earnings -= $values['amount'];
+        $user->update();
+
+        return redirect()->route('wallet')->with('success', 'Cash out placed successfully!');
     }
 }

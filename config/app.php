@@ -199,6 +199,7 @@ return [
          * My Service Providers...
          */
         App\Providers\BladeServiceProvider::class,
+        App\Providers\SettingServiceProvider::class,
 
     ],
 

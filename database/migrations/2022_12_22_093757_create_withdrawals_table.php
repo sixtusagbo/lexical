@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('withdrawals', function (Blueprint $table) {
             $table->id();
+            // referral or task earnings respectively
             $table->string('type', 10);
             $table->decimal('amount', 10);
             $table->string('acc_name');

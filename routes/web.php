@@ -29,10 +29,12 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/referrals', [App\Http\Controllers\HomeController::class, 'referrals'])->name('referrals');
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/wallet', [App\Http\Controllers\HomeController::class, 'wallet'])->name('wallet');
+
 Route::put('/profile_image', [UserController::class, 'uploadProfileImage'])->name('uploadProfileImage');
 Route::put('/bio_data', [UserController::class, 'updateBioData'])->name('updateBioData');
 Route::put('/pass_change', [UserController::class, 'updateUserPassword'])->name('updateUserPassword');
-Route::get('/wallet', [App\Http\Controllers\HomeController::class, 'wallet'])->name('wallet');
+Route::post('/ref_cashout', [UserController::class, 'referralCashout'])->name('referralCashout');
 
 Route::get('/link_storage', function () {
   Artisan::call('storage:link');

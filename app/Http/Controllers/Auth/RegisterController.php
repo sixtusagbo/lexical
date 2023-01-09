@@ -88,7 +88,7 @@ class RegisterController extends Controller
         $referrer = User::where('id', session()->pull('referrer'))->first();
 
         if ($referrer) {
-            $referrer->referral_earnings += config('myglobals.ref_worth');
+            $referrer->referral_earnings += config('myglobals.referral_worth');
             $referrer->update();
         }
 

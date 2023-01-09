@@ -1,33 +1,24 @@
-<?php
-
-return [
-
-  /*
-    |--------------------------------------------------------------------------
-    | Social Media Links
-    |--------------------------------------------------------------------------
-    |
-    | This option controls the social media links available across the app
-    |
-    */
-  'socials' => [
-    'facebook' => 'https://facebook.com/',
-    'twitter' => 'https://twitter.com/',
-    'instagram' => 'https://instagram.com/',
-    'whatsapp' => '+012 345 6789',
-    'email' => 'miracleagbosixtus@gmail.com'
-  ],
-
-  /*
-    |--------------------------------------------------------------------------
-    | Finance
-    |--------------------------------------------------------------------------
-    |
-    | This option controls the financial settings of the app
-    |
-    */
+<?php return array (
+  'app_name' => 'Lexical Pay',
+  'admin' => 
+  array (
+    'email' => NULL,
+  ),
+  'socials' => 
+  array (
+    'facebook' => NULL,
+    'twitter' => NULL,
+    'instagram' => NULL,
+    'whatsapp' => NULL,
+    'email' => 'support@lexicalpay.co',
+    'youtube' => NULL,
+  ),
   'currency' => '&#8358;',
-  'ref_worth' => 50,
-  'welcome_bonus' => 2000,
-  'daily_login_bonus' => 300,
-];
+  'referral_worth' => '1000.00',
+  'cashout_day' => 0,
+  'referral_cashout_day' => 1,
+  'welcome_bonus' => '500.00',
+  'sponsored_post' => '100.00',
+  'daily_login_bonus' => '0.00',
+  'withdrawal_charge' => '0.00',
+);
