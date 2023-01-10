@@ -84,12 +84,7 @@ class WithdrawalController extends Controller
 
         if (request()->exists('cashout_day')) {
             $settings->cashout_day = 1;
-            $settings->referral_cashout_day = 0;
-        }
-
-        if (request()->exists('referral_day')) {
             $settings->referral_cashout_day = 1;
-            $settings->cashout_day = 0;
         }
 
         if (request()->exists('close_cashout')) {

@@ -50,7 +50,6 @@
 </head>
 
 <body id="top">
-    <script src="//code.tidio.co/bqwkfaba7sy6a2zlvrdxiwbzmz0bsjmw.js" async></script>
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -102,6 +101,7 @@
                         </div>
                     </div>
                     <a href="{{ route('register') }}" class="nav-item nav-link">Sign Up</a>
+                    <a href="{{ route('login') }}" class="nav-item nav-link">Log In</a>
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                     <a class="btn btn-light btn-sm-square rounded-circle ms-3"

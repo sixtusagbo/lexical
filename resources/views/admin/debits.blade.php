@@ -21,20 +21,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label>Referral Cashout Day</label>
+                                    <label>Close Cashouts</label>
                                 </div>
                                 <div class="col-md-8 form-group">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" name="referral_day" type="checkbox" role="switch"
+                                        <input class="form-check-input" name="close_cashout" type="checkbox" role="switch"
                                             id="cashOutDay">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="checkbox1">Close cashouts<label>
-                                </div>
-                                <div class="col-md-8 form-group">
-                                    <div class="checkbox">
-                                        <input type="checkbox" id="checkbox1" class="form-check-input" name="close_cashout">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 d-flex justify-content-center">
@@ -161,8 +153,8 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Remark" name="remark" required>
+                                                            <input type="text" class="form-control" placeholder="Remark"
+                                                                name="remark" required>
                                                         </div>
 
                                                         <input type="hidden" name="_method" value="PUT">

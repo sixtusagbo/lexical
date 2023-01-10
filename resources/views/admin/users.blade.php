@@ -6,7 +6,7 @@
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-12">
                 <div class="bg-light text-light rounded p-3 shadow-sm">
-                    <h6 class="mb-3">All Members</h6>
+                    <h6 class="mb-3">All Members ({{ $users->count() }})</h6>
                     <div class="table-responsive w-100">
                         <table class="table table-dark table-striped">
                             <thead>

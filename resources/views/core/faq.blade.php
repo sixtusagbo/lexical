@@ -101,7 +101,7 @@
                                     <div id="faqCollapse-4" class="collapse" aria-labelledby="faqHeading-4"
                                         data-parent="#accordion">
                                         <div class="card-body">
-                                            <p>You automatically get the sum of &#8358;1200 on each person you refer.
+                                            <p>You automatically get the sum of @money(config('myglobals.referral_worth')) on each person you refer.
                                             </p>
                                         </div>
                                     </div>
@@ -119,11 +119,8 @@
                                         data-parent="#accordion">
                                         <div class="card-body">
                                             <ul>
-                                                <li>Referral cash out is on 10th and 20th of every month <b>(9:00AM -
-                                                        11:00AM)</b>
-                                                </li>
-                                                <li>Non-referral cash out is on the 25th of every month <b>(9:00AM -
-                                                        10:00AM)</b>
+                                                <li>Cash out is every friday<b>(9:00AM -
+                                                        02:00PM)</b>
                                                 </li>
                                             </ul>
                                         </div>
