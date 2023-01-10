@@ -38,8 +38,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => public_path() . '/uploads', // upload file in public dir
-            'url' => env('APP_URL') . '/uploads', // help to get Storage::url() 
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
