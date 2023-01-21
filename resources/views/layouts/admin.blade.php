@@ -77,9 +77,9 @@
                     <a href="{{ route('coupons') }}"
                         class="nav-item nav-link @if (Request::is('coupons')) active @endif"><i
                             class="fa fa-key me-2"></i>Coupons</a>
-                    <a href="{{ url('/blog') }}"
+                    <a href="{{ route('blog.create') }}"
                         class="nav-item nav-link @if (Request::is('blog')) active @endif"><i
-                            class="fa fa-rss-square me-2"></i>Access Blog</a>
+                            class="fa fa-rss-square me-2"></i>Create Blog Post</a>
                 </div>
             </nav>
         </div>

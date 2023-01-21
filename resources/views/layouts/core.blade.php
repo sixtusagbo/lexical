@@ -67,7 +67,7 @@
                 <small class="ms-4"><i class="fa fa-clock text-primary me-2"></i>24hrs</small>
             </div>
             <div class="col-lg-6 px-5 text-end">
-                <small><i class="fa fa-envelope text-primary me-2"></i>support@lexicalpay.cc</small>
+                <small><i class="fa fa-envelope text-primary me-2"></i>support@lexicalpay.com</small>
                 <small class="ms-4"><i
                         class="fa fa-phone-alt text-primary me-2"></i>{{ config('myglobals.socials.whatsapp') }}</small>
             </div>
@@ -101,8 +101,12 @@
                             <a href="{{ url('/#about') }}" class="dropdown-item">About Us</a>
                         </div>
                     </div>
-                    <a href="{{ route('register') }}" class="nav-item nav-link">Sign Up</a>
-                    <a href="{{ route('login') }}" class="nav-item nav-link">Log In</a>
+                    @auth
+                        <a href="{{ route('home') }}" class="nav-item nav-link">Dashboard</a>
+                    @else
+                        <a href="{{ route('register') }}" class="nav-item nav-link">Sign Up</a>
+                        <a href="{{ route('login') }}" class="nav-item nav-link">Log In</a>
+                    @endauth
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                     <a class="btn btn-light btn-sm-square rounded-circle ms-3"
@@ -134,7 +138,7 @@
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>New York, USA</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ config('myglobals.socials.whatsapp') }}
                     </p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>support@lexicalpay.cc</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>support@lexicalpay.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-light rounded-circle me-2"
                             href="{{ config('myglobals.socials.twitter') }}"><i class="fab fa-twitter"></i></a>

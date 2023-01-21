@@ -18,7 +18,7 @@ class SettingFactory extends Factory
     {
         return [
             'app_name' => 'Lexical Pay',
-            'email' => 'support@lexicalpay.cc',
+            'email' => 'support@lexicalpay.com',
             'currency' => '&#8358;',
             'referral_worth' => 1000.00,
             'welcome_bonus' => 500.00,

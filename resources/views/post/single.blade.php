@@ -77,7 +77,7 @@
                             </div>
                         @endif
 
-                        @if (Auth::user()->type == 0)
+                        @if (Auth::user()->type == 1)
                             <a href="/blog/{{ $post->id }}/edit" class="btn btn-info mb-2"><i
                                     class="bi bi-pencil-square"></i></a>
                             {!! Form::open(['route' => ['blog.destroy', $post->id], 'method' => 'DELETE', 'class' => 'form-inline']) !!}

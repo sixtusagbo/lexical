@@ -25,10 +25,11 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'Sixtus',
             'last_name' => 'Agbo',
             'email' => 'mail.mirolic@gmail.com',
+            'type' => 1,
         ]);
 
         if (App::environment('local')) {
-            \App\Models\User::factory(17)->create();
+            \App\Models\User::factory(12)->create();
         }
 
         $this->call([
