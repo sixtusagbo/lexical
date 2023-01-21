@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -42,7 +43,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -53,7 +54,30 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request; //? testing
+
+        $values = $request->validate([
+            'title' => ['string', 'max:255', 'required'],
+            'body' => ['string', 'max:2000', 'required'],
+            'cover_image' => ['image', 'max:10240'],
+        ]);
+
+        $post = new Post();
+        $post->title = $values['title'];
+        $post->body = $values['body'];
+        if ($request->hasFile('cover_image')) {
+            // upload image to server and save name to database
+            $fileExtension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = time() . '.' . $fileExtension;
+
+            $request->file('cover_image')->storeAs('post/', $fileNameToStore, 'uploads');
+        } else {
+            $fileNameToStore = 'no_cover_image.png';
+        }
+        $post->cover_image = $fileNameToStore;
+        $post->save();
+
+        return redirect()->route('blog.create')->with('success', 'Post created successfully');
     }
 
     /**
@@ -85,7 +109,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('post.edit')->with('post', Post::find($id));
     }
 
     /**
@@ -97,7 +121,34 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request; //? testing
+
+        $values = $request->validate([
+            'title' => ['string', 'max:255', 'required'],
+            'body' => ['string', 'max:2000', 'required'],
+            'cover_image' => ['image', 'max:10240'],
+        ]);
+
+        $post = Post::find($id);
+        $post->title = $values['title'];
+        $post->body = $values['body'];
+        if ($request->hasFile('cover_image')) {
+            // delete old image if any
+            if ($post->cover_image != 'no_cover_image.png') {
+                Storage::disk('uploads')->delete('post/' . $post->cover_image);
+            }
+
+            // get file extension
+            $fileExtension = $request->file('cover_image')->getClientOriginalExtension();
+            $fileNameToStore = time() . '.' . $fileExtension;
+            // upload image to server
+            $request->file('cover_image')->storeAs('post/', $fileNameToStore, 'uploads');
+            // save name to database
+            $post->cover_image = $fileNameToStore;
+        }
+        $post->update();
+
+        return redirect()->route('blog.show', $id);
     }
 
     /**

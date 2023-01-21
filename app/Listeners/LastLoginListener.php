@@ -30,7 +30,7 @@ class LastLoginListener
 
         // ?Daily login bonus task achieved
         // ?He later asked me to remove this feature
-        // if (Carbon::create($user->last_login)->diffInDays(Carbon::now()) > 0) {
+        // if ($user->last_login->diffInDays(Carbon::now()) >= 1) {
         //     $user->task_earnings += config('myglobals.daily_login_bonus');
         // }
 

@@ -27,7 +27,7 @@ class HomeController extends Controller
         $user = auth()->user();
 
         $data = [
-            'is_new_user' => $user->created_at->diffInDays(Carbon::now()) == 0,
+            'is_new_user' => $user->created_at->isToday(),
         ];
 
         return view('dash.home', $data);

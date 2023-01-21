@@ -149,7 +149,6 @@
     <script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('js/lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('js/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('js/lib/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- App Javascript -->
     <script src="{{ mix('js/auth.js') }}"></script>

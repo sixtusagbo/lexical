@@ -6,7 +6,7 @@
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-12">
                 <div class="bg-light text-light rounded p-3 shadow-sm">
-                    <h6 class="mb-3">Unused coupons</h6>
+                    <h6 class="mb-3">Unused coupons ({{ $coupons->count() }})</h6>
                     <form action="{{ route('coupons.create') }}" class="form-inline mb-3 px-3">
                         <div class="row">
                             <div class="col-sm-6 col-xl-6 rounded bg-dark text-light fw-bold pt-2 mb-2">
@@ -34,8 +34,8 @@
                                         <td class="item">{{ $coupon->code }}</td>
                                     </tr>
                                 @empty
-                                    <div class="alert alert-warning" role="alert">
-                                        Admin please run your migrations!
+                                    <div class="alert alert-info" role="alert">
+                                        No coupons yet, enjoy the quietness &#x1F31D;
                                     </div>
                                 @endforelse
                             </tbody>

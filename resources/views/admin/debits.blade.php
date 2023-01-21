@@ -49,7 +49,7 @@
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-12">
                 <div class="bg-light text-light rounded p-3 shadow-sm">
-                    <h6 class="mb-3">Pending Cashouts</h6>
+                    <h6 class="mb-3">Pending Cashouts ({{ $withdrawals->count() }})</h6>
                     <div class="table-responsive w-100">
                         <table class="table table-dark table-striped">
                             <thead>
@@ -214,8 +214,8 @@
                                     </div>
                                     <!--//Delete Withdrawal-->
                                     @empty
-                                        <div class="alert alert-warning" role="alert">
-                                            Admin please run your migrations!
+                                        <div class="alert alert-info" role="alert">
+                                            No cashouts yet, enjoy the quietness &#x1F31D;
                                         </div>
                                     @endforelse
                                 </tbody>

@@ -2,6 +2,12 @@
 
 @section('style')
     <style>
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100% !important;
+        }
+
         .page-header {
             background-image: url('{{ asset('uploads/post/' . $post->cover_image) }}') !important;
         }
@@ -89,7 +95,7 @@
             </header>
             <!-- Post content End -->
             <section class="mb-5">
-                <p class="fs-5 mb-4">{!! $post->body !!}</p>
+                <article class="fs-5 mb-4">{!! $post->body !!}</article>
             </section>
         </article>
     </div>

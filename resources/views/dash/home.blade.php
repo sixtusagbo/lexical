@@ -73,3 +73,63 @@
     </div>
     <!-- Leaderboard End -->
 @endsection
+
+@section('script')
+    <script src="{{ asset('js/lib/apexcharts/apexcharts.min.js') }}"></script>
+    <script>
+        var optionsCustom = {
+            series: [{
+                name: 'Earnings',
+                data: [{
+                        x: "Ruth O\'Ryan",
+                        y: 13300
+                    },
+                    {
+                        x: "Eric Jonathan",
+                        y: 10000
+                    },
+                    {
+                        x: "Enya Larson",
+                        y: 11600
+                    },
+                    {
+                        x: "Chistina Vaughan",
+                        y: 16000
+                    },
+                    {
+                        x: "John Ilves",
+                        y: 14300
+                    },
+                    {
+                        x: "Jacy Hawkins",
+                        y: 15200
+                    },
+                    {
+                        x: "Keth Stephens",
+                        y: 11800
+                    }
+                ]
+            }],
+            chart: {
+                type: "bar",
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    distributed: true
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false
+            }
+        };
+
+        var chartLeaderBoard = new ApexCharts(document.querySelector("#chart-leaderboard"), optionsCustom);
+
+        chartLeaderBoard.render();
+    </script>
+@endsection
