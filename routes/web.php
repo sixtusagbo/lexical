@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CoreController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WithdrawalController;
 use Illuminate\Support\Facades\Artisan;
@@ -46,6 +45,8 @@ Route::delete('/user', [AdminController::class, 'destroy_user'])->name('user.des
 
 Route::resource('debits', WithdrawalController::class)->only(['index', 'update', 'destroy']);
 Route::post('/debits', [WithdrawalController::class, 'toggle'])->name('debits.toggle')->middleware('role.admin');
+
+Route::resource('blog', App\Http\Controllers\PostController::class);
 
 Route::get('/link_storage', function () {
   Artisan::call('storage:link');

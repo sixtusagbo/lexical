@@ -47,6 +47,7 @@
     <!-- App Stylesheet -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    @yield('style')
 </head>
 
 <body id="top">
@@ -94,7 +95,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Info</a>
                         <div class="dropdown-menu border-light m-0">
                             <a href="{{ url('/#feature') }}" class="dropdown-item">Feature</a>
-                            <a href="blog.html" class="dropdown-item">Blog</a>
+                            <a href="{{ route('blog.index') }}" class="dropdown-item">Blog</a>
                             <a href="{{ route('contact') }}" class="dropdown-item">Contact</a>
                             <a href="{{ route('faq') }}" class="dropdown-item">FAQ</a>
                             <a href="{{ url('/#about') }}" class="dropdown-item">About Us</a>
