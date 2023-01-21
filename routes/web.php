@@ -47,6 +47,7 @@ Route::resource('debits', WithdrawalController::class)->only(['index', 'update',
 Route::post('/debits', [WithdrawalController::class, 'toggle'])->name('debits.toggle')->middleware('role.admin');
 
 Route::resource('blog', App\Http\Controllers\PostController::class);
+Route::post('save_blog_share', [App\Http\Controllers\PostController::class, 'save_blog_share'])->name('blog.share');
 
 Route::get('/link_storage', function () {
   Artisan::call('storage:link');

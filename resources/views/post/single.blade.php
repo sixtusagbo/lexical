@@ -43,9 +43,13 @@
 
                     @auth
                         @if ($valid_to_share)
-                            <form action="" method="POST" class="d-none" id="sharePostForm">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            </form>
+                            {!! Form::open([
+                                'route' => 'blog.share',
+                                'class' => 'd-none',
+                                'id' => 'sharePostForm',
+                            ]) !!}
+                            <input type="hidden" id="postId" name="post_id" value="{{ $post->id }}">
+                            {!! Form::close() !!}
                             <a class="btn btn-primary rounded-circle h-75" data-bs-toggle="modal" data-bs-target="#shareModal">
                                 <i class="bi bi-share-fill"></i>
                             </a>
@@ -64,16 +68,16 @@
                                             <div class="share-btn" data-url="{{ route('blog.show', $post->id) }}"
                                                 data-title="<?= $post->title ?>"
                                                 data-desc="<?= substr($post->body, 0, 15) . '...' ?>">
-                                                <a class="btn btn-primary rounded-pill" data-id="fb"><i
+                                                <a class="btn btn-primary rounded-pill" data-id="fb" id="postShareButton"><i
                                                         class="bi bi-facebook"></i>
                                                     Facebook</a>
-                                                <a class="btn btn-primary rounded-pill" data-id="tw"><i
+                                                <a class="btn btn-primary rounded-pill" data-id="tw" id="postShareButton"><i
                                                         class="bi bi-twitter"></i>
                                                     Twitter</a>
-                                                <a class="btn btn-primary rounded-pill" data-id="tg"><i
+                                                <a class="btn btn-primary rounded-pill" data-id="tg" id="postShareButton"><i
                                                         class="bi bi-telegram"></i>
                                                     Telegram</a>
-                                                <a class="btn btn-success rounded-pill" data-id="wa"><i
+                                                <a class="btn btn-success rounded-pill" data-id="wa" id="postShareButton"><i
                                                         class="bi bi-whatsapp"></i>
                                                     WhatsApp</a>
                                             </div>
@@ -104,4 +108,23 @@
 
 @section('script')
     <script src="//cdn.jsdelivr.net/npm/share-buttons/dist/share-buttons.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            const shareButtons = document.querySelectorAll("#postShareButton");
+
+            shareButtons.forEach(function(trigger) {
+                trigger.addEventListener("click", function(e) {
+                    let formData = new FormData(document.getElementById('sharePostForm'));
+
+                    fetch('{{ route('blog.share') }}', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

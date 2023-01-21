@@ -46,6 +46,7 @@ class PostController extends Controller
         return view('post.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -159,6 +160,29 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::find($id)->delete();
+
+        return redirect()->route('blog.create')->with('success', 'Post deleted successfully');
+    }
+
+    /**
+     * Save user's last blog share.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function save_blog_share()
+    {
+        $user = User::find(auth()->user()->id);
+        $post = Post::find(request()->input('post_id'));
+
+        $user_has_not_shared_today = $user->last_share_blog == null || $user->last_share_blog->diffInDays($post->created_at) >= 1;
+        $valid_to_share = $user_has_not_shared_today && $post->created_at->isToday();
+
+        if ($valid_to_share) {
+            $user->last_share_blog = Carbon::now();
+            $user->update();
+        }
+
+        return response('done');
     }
 }
