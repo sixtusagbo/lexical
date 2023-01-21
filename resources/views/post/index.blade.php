@@ -24,7 +24,7 @@
                         <!-- Blog post-->
                         <div class="card mb-4">
                             <a href="/blog/{{ $post->id }}">
-                                <img class="card-img-top" src="{{ asset('storage/images/blog/' . $post->cover_image) }}"
+                                <img class="card-img-top" src="{{ asset('uploads/post/' . $post->cover_image) }}"
                                     alt="..." />
                             </a>
                             <div class="card-body">

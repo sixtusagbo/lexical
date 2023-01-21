@@ -49,9 +49,8 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle"
-                            src="{{ url('storage/images/profile/' . Auth::user()->profile_image) }}" alt=""
-                            style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{{ url('uploads/avatars/' . Auth::user()->profile_image) }}"
+                            alt="" style="width: 40px; height: 40px;">
                         <div
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
@@ -101,8 +100,8 @@
                     <div class="nav-item bg-light dropdown">
                         <a href="#" class="nav-link bg-light dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2"
-                                src="{{ asset('storage/images/profile/' . Auth::user()->profile_image) }}"
-                                alt="" style="width: 40px; height: 40px;">
+                                src="{{ asset('uploads/avatars/' . Auth::user()->profile_image) }}" alt=""
+                                style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">{{ Auth::user()->full_name }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">

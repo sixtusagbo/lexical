@@ -43,7 +43,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         if ($user->profile_image != 'no_profile_image.png') {
-            Storage::delete('public/images/profile/' . $user->profile_image);
+            Storage::disk('uploads')->delete('avatars/' . $user->profile_image);
         }
 
         if ($request->hasFile('profile_image')) {
@@ -51,7 +51,7 @@ class UserController extends Controller
             $fileExtension = $request->file('profile_image')->getClientOriginalExtension();
             $fileNameToStore = time() . '.' . $fileExtension;
 
-            $request->file('profile_image')->storeAs('public/images/profile/', $fileNameToStore);
+            $request->file('profile_image')->storeAs('avatars/', $fileNameToStore, 'uploads');
         } else {
             $fileNameToStore = 'no_profile_image.png';
         }

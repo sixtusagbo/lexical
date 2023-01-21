@@ -3,7 +3,7 @@
 @section('style')
     <style>
         .page-header {
-            background-image: url('{{ asset('storage/images/blog/' . $post->cover_image) }}') !important;
+            background-image: url('{{ asset('uploads/post/' . $post->cover_image) }}') !important;
         }
     </style>
 @endsection
