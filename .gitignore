@@ -1,1 +1,4 @@
 .env
+bootstrap/**
+storage/**
+vendor/**
