@@ -8,7 +8,7 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="{{ config('app.name') }}">
-    <meta name="description" content="Highly profitable influencer site, Earn money for blog post shares, referrals.">
+    <meta name="description" content="Highly profitable influencer company, Earn money for blog post shares, referrals.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
