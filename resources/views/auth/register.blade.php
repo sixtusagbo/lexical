@@ -12,7 +12,7 @@
                         </a>
                         <h3>Sign Up</h3>
                     </div>
-                    <p>Don't have coupon code <a href="vendors">purchase here</a></p>
+                    <p>Don't have coupon code <a href="{{ route('vendors') }}">purchase here</a></p>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

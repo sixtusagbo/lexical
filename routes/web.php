@@ -24,6 +24,7 @@ Route::get('/contact', [CoreController::class, 'contact'])->name('contact');
 Route::get('/testimonial', [CoreController::class, 'testimonial'])->name('testimonial');
 Route::get('/payment', [CoreController::class, 'payment'])->name('payment');
 Route::get('/faq', [CoreController::class, 'faq'])->name('faq');
+Route::get('/vendors', [CoreController::class, 'vendors'])->name('vendors');
 
 Auth::routes(['verify' => true]);
 

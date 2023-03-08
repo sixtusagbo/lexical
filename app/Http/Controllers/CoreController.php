@@ -55,4 +55,14 @@ class CoreController extends Controller
     {
         return view('core.faq');
     }
+
+    /**
+     * Display the vendors page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function vendors()
+    {
+        return view('core.vendors');
+    }
 }
