@@ -196,7 +196,7 @@
                     Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    Developed By <a class="border-bottom" href="mailto:mail.mirolic@gmail.com">Mirolic</a>
+                    Developed By <a class="border-bottom" href="mailto:admin@example.com">Mirolic</a>
                 </div>
             </div>
         </div>
